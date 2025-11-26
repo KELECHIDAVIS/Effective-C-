@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-bool arm_detonator(int);
+bool arm_detonator(int num){
+  return true; 
+}
 
 int main(){
   bool armed = arm_detonator(3);
