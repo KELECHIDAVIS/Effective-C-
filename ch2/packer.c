@@ -14,8 +14,10 @@ void packer (int* arr , int n , int** resultArr, int *rows, int* colSizesArr){
   for (int i = 0; i< n; i++){
     if(i==0 || arr[i] != arr[i-1]){
       // create new array  
-       resultArr[i] = malloc (n* sizeof(int)) ; // max size  
-    }  
+      resultArr[i] = malloc (n* sizeof(int)) ; // max size  
+      colSizesArr[i] = 1; // initialized to one 
+      resultArr[i][colSizesArr[i]] = arr[i] ; 
+     }  
   }
 }
 
