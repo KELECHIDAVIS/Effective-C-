@@ -40,7 +40,7 @@ int main (int argc , char *args[]) {
   printf("Resulting array has %d rows: [ ", rows);
 
   for (int i =0; i< rows; i++ ){
-    printf(" [");
+    printf("\t[");
     for (int j = 0 ; j< colSizesArr[i]; j++ ){
       printf(" %d ", resultArr[i][j]) ;
     }
