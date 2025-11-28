@@ -31,6 +31,12 @@ int main (int argc , char *args[]) {
   const int n = 10 ; 
   int arr[] = {1,1,1 ,2, 3, 4,4, 2, 2, 1} ;
   
+  printf("Original Array: [ " ); 
+
+  for (int i = 0; i< n ; i++ ) {
+    printf(" %d " , arr[i]) ; 
+  } printf(" ]\n") ; 
+  
   int **resultArr ; // 2d array that has the packed sub arrays within 
   int rows = 0;
   int *colSizesArr; // each row can have diff amt of cols 
