@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h> 
 
+void test(){
+  return  ; 
+}
 
 void swap(int *pa, int *pb ){
   int t = *pa;
