@@ -1,29 +1,52 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h> 
 
 
-
-int main(int argc, char *argv[])
-{
-  int arr[10] = {1,1,2, 3,3,4,4,4,2,2}; 
+void packer (int* arr , int n , int** resultArr, int *rows, int* colSizesArr){ 
+  // iterate through arr 
+  // if starting or current element == prev element, add to the sub arr
+  // else create new array, add current element to array 
   
-  int resultingArr[10][10]; // max size is 10 sub arrs of 1 element  // 2d arr that holds the results 
+  // allocate max amount for result 
+  resultArr = malloc(n * sizeof(int));
+  colSizesArr = malloc(n* sizeof(int));
+
+  for (int i = 0; i< n; i++){
+    if(i==0 || arr[i] != arr[i-1]){
+      // create new array  
+       resultArr[i] = malloc (n* sizeof(int)) ; // max size  
+    }  
+  }
+}
+
+int main (int argc , char *args[]) {
+  const int n = 10 ; 
+  int arr[] = {1,1,1 ,2, 3, 4,4, 2, 2, 1} ;
   
-  // while not at  the end of the first arr 
-  // if i != previ the create a new sub arr  
-  // add i to sub_arr
-  int subArrIt = 0 ; 
-  int arrIt = 0 ; // it to read from original list 
+  int **resultArr ; // 2d array that has the packed sub arrays within 
+  int rows = 0;
+  int *colSizesArr; // each row can have diff amt of cols 
+  
+  packer ( arr , n , resultArr, &rows, colSizesArr ); 
 
-  for (int i = 0 ; i< 10;  i++){
-    if (i==0 || resultingArr[subArrIt] [i-1]== arr[i]){
-      // first it 
-      resultingArr [subArrIt][i] = arr[i];
+  printf("Resulting array: [ ");
 
-    }else {
-      // new sub array needs to be created 
-      //
+  for (int i =0; i< rows; i++ ){
+    printf("[");
+    for (int j = 0 ; j< colSizesArr[i]; j++ ){
+      printf("%d ", resultArr[i][j]) ;
     }
-  } 
-  return EXIT_SUCCESS;
+    printf("]\n");
+  }
+  
+  // free memory 
+  free(colSizesArr);
+
+  for (int i = 0; i< rows ; i++){
+    free(resultArr[i]);
+  }
+  free (resultArr); 
+
+  printf("]\n");
+  return EXIT_SUCCESS; 
 }

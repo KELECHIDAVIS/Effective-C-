@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h> 
 
-int factorial (int n  , int accumulator ){
+unsigned long long factorial (int n  , unsigned long long accumulator ){
   if (n <= 1){
     return accumulator ; 
   }
   return factorial(n-1, n*accumulator); 
 }
+
+// 4! = 4*3*2*1 = 24; 
 int main(int argc , char* args[]){
   // the first number has to be a positive integer
   if (argc< 2 ) { 
@@ -20,9 +22,9 @@ int main(int argc , char* args[]){
     printf("n has to be a positive value \n") ;
     return EXIT_FAILURE; 
   }
-  int value = factorial ( n, 1  );
+  unsigned long long value = factorial ( n, 1  );
 
-  printf ("%d factorial: %d \n" ,n, value ) ; 
+  printf ("%d! = %llu\n" ,n, value ) ; 
 
   return EXIT_SUCCESS; 
 
