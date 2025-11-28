@@ -10,19 +10,19 @@ int factorial (int n  , int accumulator ){
 int main(int argc , char* args[]){
   // the first number has to be a positive integer
   if (argc< 2 ) { 
-    printf("Error in arguments");
+    printf("Error in arguments\n");
     return EXIT_FAILURE;
   }
 
   int n = atoi(args[1]);
   
   if (n < 0 ) {
-    printf("n has to be a positive value") ;
+    printf("n has to be a positive value \n") ;
     return EXIT_FAILURE; 
   }
   int value = factorial ( n, 1  );
 
-  printf ("%d factorial: " , value ) ; 
+  printf ("%d factorial: %d \n" ,n, value ) ; 
 
   return EXIT_SUCCESS; 
 
